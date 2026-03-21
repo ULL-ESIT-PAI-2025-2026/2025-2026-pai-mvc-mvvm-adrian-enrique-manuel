@@ -1,0 +1,123 @@
+/**
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Grado en Ingeniería Informática
+ * Programación de Aplicaciones Interactivas 2025-2026
+ *
+ * @author Adrián Pérez Poleo <adrian.perez.46@ull.edu.es>
+ * @author Enrique Gómez Díaz <enrique.gomez.13@ull.edu.es>
+ * @author Manuel Cadenas García <manuel.cadenas.25@ull.edu.es>
+ * @since Mar 20 2026
+ * @desc Styles for the Todo List application.
+ * @see {@link https://github.com/taniarascia/mvc }
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Helvetica, sans-serif;
+  font-size: 1rem;
+  color: dimgray;
+  background: white;
+}
+
+#root {
+  max-width: 450px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+form {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+[type="text"],
+button {
+  display: inline-block;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  border: 2px solid silver;
+  border-radius: 4px;
+}
+
+button {
+  cursor: pointer;
+  background: white;
+  color: dodgerblue;
+  border: 2px solid dodgerblue;
+  margin: 0 .5rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+button:hover {
+  background: dodgerblue;
+  color: white;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+[type="text"] {
+  width: 100%;
+}
+
+[type="text"]:active,
+[type="text"]:focus {
+  outline: 0;
+  border: 2px solid dodgerblue;
+}
+
+[type="checkbox"] {
+  margin-right: 1rem;
+  font-size: 2rem;
+}
+
+h1 {
+  color: darkslategray;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: whitesmoke;
+  border-radius: 4px;
+}
+
+li span {
+  display: inline-block;
+  padding: .5rem;
+  width: 250px;
+  border-radius: 4px;
+  border: 2px solid transparent;
+}
+
+li span:hover {
+  background: lightblue;
+}
+
+li span:focus {
+  outline: 0;
+  border: 2px solid dodgerblue;
+  background: lightblue;
+}
+
+nav {
+  margin: 1rem 0.2rem;
+}
+
+nav a {
+  color: Navy;
+}
+
+nav a:hover {
+  color: dodgerblue;
+}
