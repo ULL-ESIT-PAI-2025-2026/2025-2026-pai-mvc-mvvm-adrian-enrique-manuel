@@ -101,13 +101,13 @@ li span {
 }
 
 li span:hover {
-  background: lightblue;
+  background: white;
 }
 
 li span:focus {
   outline: 0;
   border: 2px solid dodgerblue;
-  background: lightblue;
+  background: white;
 }
 
 nav {
