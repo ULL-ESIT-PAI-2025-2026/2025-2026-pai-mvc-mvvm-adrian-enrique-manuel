@@ -17,11 +17,10 @@ import { Todo } from './todo.js';
 
 /**
  * Manages the data of the application, including the list of todos and methods to manipulate them.
- * Also handles persistence using localStorage and notifies observers of changes.
  */
 export class Model {
   private todos: Todo[];
-  private onTodoListChanged?: (todos: Todo[]) => void;
+  private observers: Array<(todos: Todo[]) => void> = [];
 
   /** Initializes the model by loading todos from localStorage if available. */
   constructor() {
@@ -30,26 +29,17 @@ export class Model {
   }
 
   /** 
-   * Registers the callback that view/controller will use to refresh the UI.
-   * @callback callback - Function to call when the todo list changes, receiving the updated list of todos.
+   * Registers the callback that view through the controller will use to refresh the UI.
+   * @callback callback Function to call when the todo list changes,
+   *    receiving the updated list of todos.
    */
-  bindTodoListChanged(callback: (todos: Todo[]) => void): void {
-    this.onTodoListChanged = callback;
-  }
-
-  /**
-   * Persists state and notifies the observer.
-   * @param todos - The updated list of todos to save and notify about.
-   */
-  private commit(todos: Todo[]): void {
-    this.todos = todos;
-    localStorage.setItem('todos', JSON.stringify(todos));
-    this.onTodoListChanged?.(todos);
+  onChange(callback: (todos: Todo[]) => void): void {
+    this.observers.push(callback);
   }
 
   /**
    * Adds a new todo to the list with the given text, assigning it a unique ID.
-   * @param todoText - The text description of the new todo item.
+   * @param todoText The text description of the new todo item.
    */
   addTodo(todoText: string): void {
     const todo: Todo = {
@@ -62,8 +52,8 @@ export class Model {
 
   /**
    * Edits the text of an existing todo identified by its ID.
-   * @param id - The unique identifier of the todo to edit.
-   * @param updatedText - The new text to update the todo with.
+   * @param id The unique identifier of the todo to edit.
+   * @param updatedText The new text to update the todo with.
    */
   editTodo(id: number, updatedText: string): void {
     this.commit(
@@ -75,7 +65,7 @@ export class Model {
 
   /**
    * Deletes a todo from the list based on its ID.
-   * @param id - The unique identifier of the todo to delete.
+   * @param id The unique identifier of the todo to delete.
    */
   deleteTodo(id: number): void {
     this.commit(this.todos.filter((todo) => todo.id !== id));
@@ -83,7 +73,7 @@ export class Model {
 
   /**
    * Toggles the completion status of a todo identified by its ID.
-   * @param id - The unique identifier of the todo to toggle.
+   * @param id The unique identifier of the todo to toggle.
    */
   toggleTodo(id: number): void {
     this.commit(
@@ -99,5 +89,15 @@ export class Model {
    */
   getTodos(): Todo[] {
     return this.todos;
+  }
+
+  /**
+   * Persists state and notifies the observer.
+   * @param todos The updated list of todos to save and notify about.
+   */
+  private commit(todos: Todo[]): void {
+    this.todos = todos;
+    localStorage.setItem('todos', JSON.stringify(todos));
+    this.observers.forEach((observer) => observer(todos));
   }
 }

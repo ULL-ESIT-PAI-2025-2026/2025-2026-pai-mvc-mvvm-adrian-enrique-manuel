@@ -25,8 +25,6 @@ export class View {
   private readonly submitButton: HTMLButtonElement;
   private readonly title: HTMLHeadingElement;
   private readonly todoList: HTMLUListElement;
-
-  /** Holds text typed into an editable span before focusout fires. */
   private temporaryTodoText: string = '';
 
   /**
@@ -35,6 +33,10 @@ export class View {
   constructor() {
     // Gets the root element from the DOM (the div with id "root")
     this.app = this.getElement<HTMLElement>('#root');
+
+    // <h1>Todos</h1>
+    this.title = this.createElement<HTMLHeadingElement>('h1');
+    this.title.textContent = 'Todos';
 
     // <form>
     this.form = this.createElement<HTMLFormElement>('form');
@@ -51,52 +53,12 @@ export class View {
 
     this.form.append(this.input, this.submitButton);
 
-    // <h1>Todos</h1>
-    this.title = this.createElement<HTMLHeadingElement>('h1');
-    this.title.textContent = 'Todos';
-
     // <ul class="todo-list"></ul>
     this.todoList = this.createElement<HTMLUListElement>('ul', 'todo-list');
 
     this.app.append(this.title, this.form, this.todoList);
 
     this.initLocalListeners();
-  }
-
-  /** 
-   * Gets the current value of the input field.
-   * @return The text currently entered in the input field.
-   */
-  private getInputText(): string {
-    return this.input.value;
-  }
-
-  /** Clears the input field. */
-  private resetInput(): void {
-    this.input.value = '';
-  }
-
-  /** 
-   * Utility method to create an element with an optional CSS class. 
-   * @param tag The type of element to create (e.g., 'div', 'span').
-   * @param className Optional CSS class to add to the element.
-   * @returns The created element cast to the specified type.
-   */
-  private createElement<Type extends HTMLElement>(tag: string, className?: string): Type {
-    const element = document.createElement(tag) as Type;
-    if (className) element.classList.add(className);
-    return element;
-  }
-
-  /** Utility method to get an element from the DOM. 
-   * @param selector CSS selector to find the element.
-   * @returns The found element cast to the specified type.
-   * @throws Error if no element is found for the given selector.
-   */
-  private getElement<Type extends HTMLElement>(selector: string): Type {
-    const element = document.querySelector<Type>(selector);
-    if (!element) throw new Error(`No element found for selector: ${selector}`);
-    return element;
   }
 
   /** 
@@ -113,17 +75,17 @@ export class View {
 
     // If there are no todos, display a message
     if (todos.length === 0) {
-      const p = this.createElement<HTMLParagraphElement>('p');
-      p.textContent = 'Nothing to do! Add a task?';
-      this.todoList.append(p);
+      const paragraph = this.createElement<HTMLParagraphElement>('p');
+      paragraph.textContent = 'Nothing to do! Add a task?';
+      this.todoList.append(paragraph);
       return;
     }
 
     // Creates a list item for each todo and appends it to the list
     todos.forEach((todo) => {
       // <li id="{id}">
-      const li = this.createElement<HTMLLIElement>('li');
-      li.id = String(todo.id);
+      const listElement = this.createElement<HTMLLIElement>('li');
+      listElement.id = String(todo.id);
 
       // <input type="checkbox" checked="{complete}" />
       const checkbox = this.createElement<HTMLInputElement>('input');
@@ -148,10 +110,68 @@ export class View {
       const deleteButton = this.createElement<HTMLButtonElement>('button', 'delete');
       deleteButton.textContent = 'Delete';
 
-      li.append(checkbox, span, deleteButton);
-      this.todoList.append(li);
+      listElement.append(checkbox, span, deleteButton);
+      this.todoList.append(listElement);
     });
     console.log(todos);
+  }
+
+  /**
+   * Binds a handler function to the form submission event to add a new todo.
+   * @param handler Function that takes the text of the new todo and adds it to the list.
+   */
+  onAddTodo(handler: (text: string) => void): void {
+    this.form.addEventListener('submit', (event: SubmitEvent) => {
+      event.preventDefault();
+      const text = this.getInputText();
+      if (text) {
+        handler(text);
+        this.resetInput();
+      }
+    });
+  }
+
+  /**
+   * Binds a handler function to the click event on delete buttons to remove a todo.
+   * @param handler Function that takes the ID of the todo to delete.
+   */
+  onDeleteTodo(handler: (id: number) => void): void {
+    this.todoList.addEventListener('click', (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (target.className === 'delete') {
+        const id = parseInt(target.parentElement!.id, 10);
+        handler(id);
+      }
+    });
+  }
+
+  /**
+   * Binds a handler function to the focusout event on editable spans to edit a todo's text.
+   * @param handler Function that takes the ID of the todo and the new text to update it.
+   */
+  onEditTodo(handler: (id: number, text: string) => void): void {
+    this.todoList.addEventListener('focusout', (event: FocusEvent) => {
+      if (this.temporaryTodoText) {
+        const target = event.target as HTMLElement;
+        const id = parseInt(target.parentElement!.id, 10);
+        handler(id, this.temporaryTodoText);
+        this.temporaryTodoText = '';
+      }
+    });
+  }
+
+  /**
+   * Binds a handler function to the change event on checkboxes to toggle a todo's completion status.
+   * @param handler Function that takes the ID of the todo to toggle its completion status.
+   */
+  onToggleTodo(handler: (id: number) => void): void {
+    this.todoList.addEventListener('change', (event: Event) => {
+      const target = event.target as HTMLInputElement;
+      if (target.type === 'checkbox') {
+        const id = parseInt(target.parentElement!.id, 10);
+        handler(id);
+      }
+    });
   }
 
   /**
@@ -167,63 +187,39 @@ export class View {
     });
   }
 
-  /* Methods to bind event handlers for user interactions */
-
-  /**
-   * Binds a handler function to the form submission event to add a new todo.
-   * @param handler Function that takes the text of the new todo and adds it to the list.
+  /** 
+   * Gets the current value of the input field.
+   * @return The text currently entered in the input field.
    */
-  bindAddTodo(handler: (text: string) => void): void {
-    this.form.addEventListener('submit', (event: SubmitEvent) => {
-      event.preventDefault();
-      const text = this.getInputText();
-      if (text) {
-        handler(text);
-        this.resetInput();
-      }
-    });
+  private getInputText(): string {
+    return this.input.value;
   }
 
-  /**
-   * Binds a handler function to the click event on delete buttons to remove a todo.
-   * @param handler Function that takes the ID of the todo to delete.
-   */
-  bindDeleteTodo(handler: (id: number) => void): void {
-    this.todoList.addEventListener('click', (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (target.className === 'delete') {
-        const id = parseInt(target.parentElement!.id, 10);
-        handler(id);
-      }
-    });
+  /** Clears the input field. */
+  private resetInput(): void {
+    this.input.value = '';
   }
 
-  /**
-   * Binds a handler function to the focusout event on editable spans to edit a todo's text.
-   * @param handler Function that takes the ID of the todo and the new text to update it.
+  /** 
+   * Utility method to create an element with an optional CSS class. 
+   * @param tag The type of element to create.
+   * @param className Optional CSS class to add to the element.
+   * @returns The created element cast to the specified type.
    */
-  bindEditTodo(handler: (id: number, text: string) => void): void {
-    this.todoList.addEventListener('focusout', (event: FocusEvent) => {
-      if (this.temporaryTodoText) {
-        const target = event.target as HTMLElement;
-        const id = parseInt(target.parentElement!.id, 10);
-        handler(id, this.temporaryTodoText);
-        this.temporaryTodoText = '';
-      }
-    });
+  private createElement<Type extends HTMLElement>(tag: string, className?: string): Type {
+    const element = document.createElement(tag) as Type;
+    if (className) element.classList.add(className);
+    return element;
   }
 
-  /**
-   * Binds a handler function to the change event on checkboxes to toggle a todo's completion status.
-   * @param handler Function that takes the ID of the todo to toggle its completion status.
+  /** Utility method to get an element from the DOM. 
+   * @param selector CSS selector to find the element.
+   * @returns The found element cast to the specified type.
+   * @throws Error if no element is found for the given selector.
    */
-  bindToggleTodo(handler: (id: number) => void): void {
-    this.todoList.addEventListener('change', (event: Event) => {
-      const target = event.target as HTMLInputElement;
-      if (target.type === 'checkbox') {
-        const id = parseInt(target.parentElement!.id, 10);
-        handler(id);
-      }
-    });
+  private getElement<Type extends HTMLElement>(selector: string): Type {
+    const element = document.querySelector<Type>(selector);
+    if (!element) throw new Error(`No element found for selector: ${selector}`);
+    return element;
   }
 }

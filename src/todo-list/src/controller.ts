@@ -22,27 +22,21 @@ import { Todo } from './todo.js';
  * It listens for changes in the Model and updates the View accordingly.
  */
 export class Controller {
-  private readonly model: Model;
-  private readonly view: View;
-
   /**
    * Initializes the controller by setting up the model and view, 
    * binding the view's event handlers to the model's methods, and displaying the initial list of todos.
-   * @param model - The instance of the Model class to manage the application's data.
-   * @param view - The instance of the View class to manage the application's user interface.
-   */
-  constructor(model: Model, view: View) {
-    this.model = model;
-    this.view = view;
-
+   * @param model The instance of the Model class to manage the application's data.
+   * @param view The instance of the View class to manage the application's user interface.
+   */ 
+  constructor(private readonly model: Model, private readonly view: View) {
     // Bind the model's change listener to the controller's method to update the view
-    this.model.bindTodoListChanged(this.onTodoListChanged);
+    this.model.onChange(this.onTodoListChanged);
 
     // Bind view event handlers to controller methods
-    this.view.bindAddTodo(this.handleAddTodo);
-    this.view.bindEditTodo(this.handleEditTodo);
-    this.view.bindDeleteTodo(this.handleDeleteTodo);
-    this.view.bindToggleTodo(this.handleToggleTodo);
+    this.view.onAddTodo(this.handleAddTodo);
+    this.view.onEditTodo(this.handleEditTodo);
+    this.view.onDeleteTodo(this.handleDeleteTodo);
+    this.view.onToggleTodo(this.handleToggleTodo);
 
     // Display initial todos from localStorage
     this.onTodoListChanged(this.model.getTodos());
@@ -50,7 +44,7 @@ export class Controller {
 
   /**
    * Callback function that gets called whenever the todo list changes in the model.
-   * @param todos - The updated list of todos to display in the view.
+   * @param todos The updated list of todos to display in the view.
    */
   private onTodoListChanged = (todos: Todo[]): void => {
     this.view.displayTodos(todos);
@@ -58,7 +52,7 @@ export class Controller {
 
   /**
    * Event handler for adding a new todo.
-   * @param todoText - The text description of the new todo item to add.
+   * @param todoText The text description of the new todo item to add.
    */
   private handleAddTodo = (todoText: string): void => {
     this.model.addTodo(todoText);
@@ -66,8 +60,8 @@ export class Controller {
 
   /**
    * Event handler for editing an existing todo.
-   * @param id - The unique identifier of the todo to edit.
-   * @param todoText - The new text to update the todo with.
+   * @param id The unique identifier of the todo to edit.
+   * @param todoText The new text to update the todo with.
    */
   private handleEditTodo = (id: number, todoText: string): void => {
     this.model.editTodo(id, todoText);
@@ -75,7 +69,7 @@ export class Controller {
 
   /**
    * Event handler for deleting a todo.
-   * @param id - The unique identifier of the todo to delete.
+   * @param id The unique identifier of the todo to delete.
    */
   private handleDeleteTodo = (id: number): void => {
     this.model.deleteTodo(id);
@@ -83,7 +77,7 @@ export class Controller {
 
   /**
    * Event handler for toggling the completion status of a todo.
-   * @param id - The unique identifier of the todo to toggle.
+   * @param id The unique identifier of the todo to toggle.
    */
   private handleToggleTodo = (id: number): void => {
     this.model.toggleTodo(id);
