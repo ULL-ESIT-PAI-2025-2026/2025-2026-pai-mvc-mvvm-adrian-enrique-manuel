@@ -2,63 +2,59 @@
 
 ```mermaid
 classDiagram
-    %% Modelo
-    class Figura {
+    
+    class Figure {
         <<abstract>>
         #canvas: HTMLCanvasElement
-        #contexto: CanvasRenderingContext2D
+        #context: CanvasRenderingContext2D
         +getCanvas() HTMLCanvasElement
-        +getContexto() CanvasRenderingContext2D
-        +dibujar(x: number, y: number, color: string)* void
-        +calcularArea()* number
-        +calcularPerimetro()* number
+        +getContext() CanvasRenderingContext2D
+        +draw(x: number, y: number, color: string)* void
+        +calculateArea()* number
+        +calculatePerimeter()* number
     }
 
-    class Circulo {
-        -radio: number
-        +dibujar(x: number, y: number, color: string) void
-        +calcularArea() number
-        +calcularPerimetro() number
+    class Circle {
+        -radius: number
+        +draw(x: number, y: number, color: string) void
+        +calculateArea() number
+        +calculatePerimeter() number
     }
 
-    class CreadorFiguras {
+    class FigureCreator {
         <<Factory>>
         -MIN_SIZE: number = 100
         -MAX_SIZE: number = 300
-        +generarFiguraAleatoria() Figura
+        +generateRandomFigure() Figure
     }
 
-    %% Vista
-    class Vista {
-        -colores: string[]
-        +renderizarFigura(figura: Figura) void
-        +renderizarFiguras(figuras: Figura[]) void
-        +mostrarMensaje(mensaje: string) void
-        +mostrarError(error: string) void
+    
+    class View {
+        -colors: string[]
+        +renderFigure(figure: Figure) void
+        +renderFigures(figures: Figure[]) void
+        +showMessage(message: string) void
+        +showError(error: string) void
     }
 
-    %% Controlador
-    class Controlador {
-        -vista: Vista
-        -figuras: Figura[]
-        +inicializar(numeroFiguras: number) void
+    class Controller {
+        -view: View
+        -figures: Figure[]
+        +initialize(numberOfFigures: number) void
     }
 
-    %% Cliente
     class main {
         <<main>>
         +main() void
     }
 
-    %% Herencia
-    Circulo --|> Figura
+    Circle --|> Figure
 
-    %% Composición y Uso
-    Controlador --> Vista : utiliza
-    Controlador --> CreadorFiguras : utiliza
-    Controlador --> Figura : contiene array
-    Vista --> Figura : dibuja
-    main --> Vista : instancia
-    main --> Controlador : instancia
-    CreadorFiguras --> Figura : crea instancias
+    Controller --> View : uses
+    Controller --> FigureCreator : uses
+    Controller --> Figure : contains array
+    View --> Figure : draws
+    main --> View : instantiates
+    main --> Controller : instantiates
+    FigureCreator --> Figure : creates instances
 ```
