@@ -19,7 +19,7 @@ import { View } from './view.js';
 
 // Entry point
 function main(): void {
-  const app = new Controller(new Model(), new View());
+  new Controller(new Model(), new View());
 }
 
 main();

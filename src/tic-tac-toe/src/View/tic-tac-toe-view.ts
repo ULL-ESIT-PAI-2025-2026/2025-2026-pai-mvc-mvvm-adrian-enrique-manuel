@@ -70,8 +70,11 @@ export class TicTacToeView {
     this.message = document.createElement('div');
     this.message.className = 'message';
 
-    document.body.appendChild(board);
-    document.body.appendChild(this.message);
+    const root = document.getElementById('root');
+    if (root) {
+      root.appendChild(board);
+      root.appendChild(this.message);
+    }
   }
 
   /**

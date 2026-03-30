@@ -1,0 +1,44 @@
+/*
+  Universidad de La Laguna
+  Escuela Superior de Ingeniería y Tecnología
+  Grado en Ingeniería Informática
+  Programación de Aplicaciones Interactivas 2025-2026
+
+  @author Adrián Pérez Poleo <adrian.perez.46@ull.edu.es>
+  @author Enrique Gómez Díaz <enrique.gomez.13@ull.edu.es>
+  @author Manuel Cadenas García <manuel.cadenas.25@ull.edu.es>
+  @since Mar 20 2026
+  @desc CSS code for the index.html.
+*/
+
+h1 {
+  text-align: center;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: darkblue;
+  font-size: 45px;
+  margin-bottom: 5px; 
+}
+
+h2 {
+  text-align: center;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: darkslategrey;
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+a {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: darkblue;
+  display: block;
+  font-size: 20px;  
+  margin-top: 0px;
+  margin-bottom: 20px; 
+}
+
+body {
+  background-color: whitesmoke;
+  text-align: center;
+}
