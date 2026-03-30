@@ -4,35 +4,37 @@
  * Grado en Ingeniería Informática
  * Programación de Aplicaciones Interactivas 2025-2026
  *
- * @author Enrique Gómez Díaz
- * @since 25 de marzo 2026
- * @desc Cliente principal que utiliza el patrón MVC para visualizar figuras geométricas.
- *
-*/
+ * @author Adrián Pérez Poleo <adrian.perez.46@ull.edu.es>
+ * @author Enrique Gómez Díaz <enrique.gomez.13@ull.edu.es>
+ * @author Manuel Cadenas García <manuel.cadenas.25@ull.edu.es>
+ * @since Mar 20 2026
+ * @description Main client that starts the application for visualizing
+ *              geometric figures using the MVC pattern.
+ */
 
-import { Vista } from './view/vista.js';
-import { Controlador } from './controller/controlador.js';
+import { View } from './view/view.js';
+import { Controller } from './controller/controller.js';
 
 /**
- * @description Función principal que se ejecuta al cargar la página.
- *              Implementa el patrón MVC para la visualización de figuras geométricas.
+ * @description Main function that runs when the page loads.
+ *              Implements the MVC pattern for visualizing geometric figures.
  */
 function main(): void {
   try {
-    let numeroFiguras = parseInt(prompt('Introduce el número de figuras a mostrar:') || '0');
+    let numberOfFigures = parseInt(prompt('Enter the number of figures to display:') || '0');
     
-    if (isNaN(numeroFiguras) || numeroFiguras < 0) {
-      throw new Error('Por favor, introduce un número válido y positivo.');
+    if (isNaN(numberOfFigures) || numberOfFigures < 0) {
+      throw new Error('Please enter a valid positive number.');
     }
 
-    const vista = new Vista();
+    const view = new View();
     
-    const controlador = new Controlador(vista);
+    const controller = new Controller(view);
     
-    controlador.inicializar(numeroFiguras);
+    controller.initialize(numberOfFigures);
 
   } catch (error) {
-    console.error('Error en la aplicación principal:', error);
+    console.error('Error in main application:', error);
   }
 }
 
