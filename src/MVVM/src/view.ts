@@ -27,7 +27,7 @@ export class View {
    * and sets up the DOM elements.
    */
   constructor(private readonly viewModel: ViewModel) {
-    this.container = document.createElement('div');
+    this.container = document.getElementById('app') as HTMLElement;
     this.firstNameInput = document.createElement('input');
     this.lastNameInput = document.createElement('input');
     this.message = document.createElement('h1');
@@ -37,14 +37,6 @@ export class View {
     this.container.appendChild(this.message);
 
     this.bindEvents();
-  }
-
-  /**
-   * Method to get the root element of the view, which can be appended to the DOM.
-   * @return The root HTMLElement of the view.
-   */
-  getElement(): HTMLElement {
-    return this.container;
   }
 
   /**
