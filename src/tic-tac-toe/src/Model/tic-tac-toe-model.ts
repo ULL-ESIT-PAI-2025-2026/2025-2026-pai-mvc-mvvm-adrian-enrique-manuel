@@ -36,7 +36,7 @@ export interface UpdateCellData {
 /**
  * Represents the TicTacToe game logic and state.
  */
-export class TicTacToe {
+export class TicTacToeModel {
   private board: (Player | null)[];
   private currentPlayer: Player;
   private finished: boolean;

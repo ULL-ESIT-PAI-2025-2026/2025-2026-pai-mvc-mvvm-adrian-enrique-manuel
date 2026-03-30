@@ -12,12 +12,16 @@
  */
 
 import {TicTacToeController} from './Controller/tic-tac-toe-controller.js';
+import { TicTacToeView } from './View/tic-tac-toe-view.js';
+import {TicTacToeModel} from './Model/tic-tac-toe-model.js';
 
 /**
  * Main function of the program.
  */
 function main() {
-  const ticTacToe = new TicTacToeController();
+  const ticTacToeView = new TicTacToeView();
+  const ticTacToeModel = new TicTacToeModel();
+  const ticTacToe = new TicTacToeController(ticTacToeModel, ticTacToeView);
   ticTacToe.run();
 }
 

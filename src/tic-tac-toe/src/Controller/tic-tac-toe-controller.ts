@@ -13,7 +13,7 @@
  *       linking user interactions to game logic updates.
  */
 
-import {TicTacToe as TicTacToeModel} from '../Model/tic-tac-toe-model.js';
+import {TicTacToeModel as TicTacToeModel} from '../Model/tic-tac-toe-model.js';
 import {TicTacToeView} from '../View/tic-tac-toe-view.js';
 
 /**
@@ -22,22 +22,12 @@ import {TicTacToeView} from '../View/tic-tac-toe-view.js';
  */
 export class TicTacToeController {
   /**
-   * The game model containing the core logic, state, and rules.
+   * 
+   * @param model 
+   * @param view 
    */
-  private readonly model: TicTacToeModel;
-
-  /**
-   * The game view responsible for rendering the UI and capturing user input.
-   */
-  private readonly view: TicTacToeView;
-
-  /**
-   * Initializes the controller, creating instances of the Model and View, 
-   * and binds their events together.
-   */
-  constructor() {
-    this.model = new TicTacToeModel();
-    this.view = new TicTacToeView();
+  constructor(private readonly model: TicTacToeModel,
+              private readonly view: TicTacToeView) {
 
     this.view.addPlayListener((move: number) => { 
       this.model.play(move); 
