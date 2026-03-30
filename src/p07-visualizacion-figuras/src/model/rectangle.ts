@@ -39,8 +39,8 @@ export class Rectangle extends Figure {
 
     this.context.beginPath();
     this.context.rect(coordinateX, coordinateY, this.width, this.height);
-    this.context.strokeStyle = color;
-    this.context.stroke();
+    this.context.fillStyle = color;
+    this.context.fill();
   }
 
   /**

@@ -41,8 +41,8 @@ export class Triangle extends Figure {
     this.context.lineTo(coordinateX + this.base, coordinateY);
     this.context.lineTo(coordinateX + this.base / 2, coordinateY - this.height);
     this.context.closePath();
-    this.context.strokeStyle = color;
-    this.context.stroke();
+    this.context.fillStyle = color;
+    this.context.fill();
   }
 
   /**

@@ -1,5 +1,3 @@
-# Diagrama UML - Visualización de Figuras
-
 ```mermaid
 classDiagram
     
@@ -52,9 +50,7 @@ classDiagram
 
     Controller --> View : uses
     Controller --> FigureCreator : uses
-    Controller --> Figure : contains array
     View --> Figure : draws
-    main --> View : instantiates
     main --> Controller : instantiates
     FigureCreator --> Figure : creates instances
 ```

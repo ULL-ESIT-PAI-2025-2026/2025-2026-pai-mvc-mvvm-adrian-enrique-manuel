@@ -39,8 +39,8 @@ export class Square extends Figure {
 
     this.context.beginPath();
     this.context.rect(coordinateX, coordinateY, this.side, this.side);
-    this.context.strokeStyle = color;
-    this.context.stroke();
+    this.context.fillStyle = color;
+    this.context.fill();
   }
 
   /**

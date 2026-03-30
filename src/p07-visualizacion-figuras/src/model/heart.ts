@@ -44,8 +44,8 @@ export class Heart extends Figure {
     this.context.bezierCurveTo(coordinateX, coordinateY + this.radius / 2, coordinateX + this.radius / 2, coordinateY + this.radius / 2, coordinateX + this.radius / 2, coordinateY);
     this.context.bezierCurveTo(coordinateX + this.radius / 2, coordinateY - this.radius / 2, coordinateX, coordinateY - this.radius / 2, coordinateX, coordinateY);
     this.context.closePath();
-    this.context.strokeStyle = color;
-    this.context.stroke();
+    this.context.fillStyle = color;
+    this.context.fill();
   }
 
   /**

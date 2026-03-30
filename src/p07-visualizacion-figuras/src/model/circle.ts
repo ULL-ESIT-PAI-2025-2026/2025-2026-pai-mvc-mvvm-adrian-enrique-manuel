@@ -39,8 +39,8 @@ export class Circle extends Figure {
 
     this.context.beginPath();
     this.context.arc(coordinateX, coordinateY, this.radius, 0, 2 * Math.PI);
-    this.context.strokeStyle = color;
-    this.context.stroke();
+    this.context.fillStyle = color;
+    this.context.fill();
   }
 
   /**

@@ -1,44 +1,9 @@
-h1 {
-  color: black;
-  text-align: center;
-  font-weight: bold;
-  font-family: Helvetica;
-  border: 3px solid purple;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 20px auto;
-  max-width: 400px;
-}
-
-.menu {
-  border: 3px solid purple;
-  border-radius: 10px;
-  margin: 20px auto;
-  max-width: 400px;
-  overflow: hidden;
-}
-
-.menu h2 {
-  text-align: center;
-  font-family: Helvetica;
-  font-weight: bold;
-  color: black;
-  margin: 0;
-  padding: 15px 10px;
-}
-
-.menu-divisor {
-  border: none;
-  border-top: 2px solid purple;
-  margin: 0;
-}
-
 h3 {
   color: black;
   text-align: center;
   font-weight: bold;
   font-family: Helvetica;
-  border: 2px solid purple;
+  border: 2px solid darkblue;
   border-radius: 10px;
   padding: 5px;
   margin: 20px auto;
@@ -48,6 +13,38 @@ h3 {
 canvas {
   display: block;
   margin: 0 auto;
-  border: 10px solid purple;
+  border: 10px solid darkblue;
   background-color: white;
+}
+
+h1 {
+  text-align: center;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: darkblue;
+  font-size: 45px;
+  margin-bottom: 5px; 
+}
+
+h2 {
+  text-align: center;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: darkslategrey;
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+a {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: darkblue;
+  display: block;
+  font-size: 20px;  
+  margin-top: 0px;
+  margin-bottom: 20px; 
+}
+
+body {
+  background-color: whitesmoke;
+  text-align: center;
 }
