@@ -12,14 +12,19 @@
  */
 
 /**
- * Type definition for a listener function that takes a value of a generic type and returns void.
+ * Type definition for a callback function that reacts to an event.
+ * @template Type The type of the data passed to the listener.
  */
 export type Listener<Type> = (value: Type) => void;
 
 /**
- * Observable class that allows subscribing to changes in a value of a generic type.
+ * Generic class that models an event using the Observer pattern.
+ * @template Type The type of data emitted by the event.
  */
 export class Observable<Type> {
+  /**
+   * Array of registered listener callbacks.
+   */
   private listeners: Listener<Type>[] = [];
 
   /**
@@ -28,23 +33,6 @@ export class Observable<Type> {
    */
   constructor(private value: Type) {
     this.value = value;
-  }
-
-  /**
-   * Getter for the current value of the observable.
-   * @return The current value of the observable.
-   */
-  getValue(): Type {
-    return this.value;
-  }
-
-  /**
-   * Setter for the value of the observable. Triggers notifications to all subscribed listeners.
-   * @param newValue The new value to set for the observable.
-   */
-  setValue(newValue: Type): void {
-    this.value = newValue;
-    this.notify();
   }
 
   /**
@@ -64,5 +52,22 @@ export class Observable<Type> {
     for (const listener of this.listeners) {
       listener(this.value);
     }
+  }
+
+  /**
+   * Getter for the current value of the observable.
+   * @return The current value of the observable.
+   */
+  getValue(): Type {
+    return this.value;
+  }
+
+  /**
+   * Setter for the value of the observable. Triggers notifications to all subscribed listeners.
+   * @param newValue The new value to set for the observable.
+   */
+  setValue(newValue: Type): void {
+    this.value = newValue;
+    this.notify();
   }
 }

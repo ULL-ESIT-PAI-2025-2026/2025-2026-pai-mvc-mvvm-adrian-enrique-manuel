@@ -13,9 +13,9 @@
  * @see {@link https://github.com/taniarascia/mvc }
  */
 
-import { Model } from './model.js';
-import { View } from './view.js';
-import { Todo } from './todo.js';
+import { Model } from '../Model/model.js';
+import { View } from '../View/view.js';
+import { Todo } from '../todo.js';
 
 /**
  * Wires the View's event handlers to the Model's methods

@@ -13,7 +13,7 @@
  * @see {@link https://github.com/taniarascia/mvc }
  */
 
-import { Todo } from './todo.js';
+import { Todo } from '../todo.js';
 
 /**
  * Manages the data of the application, including the list of todos and methods to manipulate them.

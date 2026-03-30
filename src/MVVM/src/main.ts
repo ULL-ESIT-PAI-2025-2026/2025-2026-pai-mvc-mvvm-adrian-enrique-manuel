@@ -11,9 +11,9 @@
  * @desc Main file for the MVVM application.
  */
 
-import { User, UserData } from './model.js';
-import { ViewModel } from './viewmodel.js';
-import { View } from './view.js';
+import { User, UserData } from './Model/model.js';
+import { ViewModel } from './Viewmodel/viewmodel.js';
+import { View } from './View/view.js';
 
 // Entry point
 function main(data: UserData): void {

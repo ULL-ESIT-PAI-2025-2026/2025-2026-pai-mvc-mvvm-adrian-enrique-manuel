@@ -11,8 +11,8 @@
  * @desc ViewModel file for the MVVM application.
  */
 
-import { Observable } from './observable.js';
-import { User } from './model.js';
+import { Observable } from '../observable.js';
+import { User } from '../Model/model.js';
 
 /**
  * ViewModel class that acts as an intermediary between the Model and the View.

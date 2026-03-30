@@ -29,7 +29,7 @@ export class User {
    * @param firstName The first name of the user.
    * @param lastName The last name of the user.
    */
-  constructor(private firstName: string, private lastName: string) {
+  constructor(private readonly firstName: string, private readonly lastName: string) {
     this.firstName = firstName.toUpperCase();
     this.lastName = lastName.toUpperCase();
   }

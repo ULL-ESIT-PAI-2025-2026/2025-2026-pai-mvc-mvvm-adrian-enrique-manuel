@@ -13,7 +13,7 @@
  * @see {@link https://github.com/taniarascia/mvc }
  */
 
-import { Todo } from './todo.js';
+import { Todo } from '../todo.js';
 
 /**
  * Builds the DOM structure and exposes methods to bind event handlers.

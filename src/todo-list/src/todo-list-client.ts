@@ -13,9 +13,9 @@
  * @see {@link https://github.com/taniarascia/mvc }
  */
 
-import { Controller } from './controller.js';
-import { Model } from './model.js';
-import { View } from './view.js';
+import { Controller } from './Controller/controller.js';
+import { Model } from './Model/model.js';
+import { View } from './View/view.js';
 
 // Entry point
 function main(): void {

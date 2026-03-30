@@ -11,7 +11,7 @@
  * @desc View file for the MVVM application.
  */
 
-import { ViewModel } from './viewmodel.js';
+import { ViewModel } from '../Viewmodel/viewmodel.js';
 
 /**
  * View class responsible for rendering the user interface and handling user interactions.
