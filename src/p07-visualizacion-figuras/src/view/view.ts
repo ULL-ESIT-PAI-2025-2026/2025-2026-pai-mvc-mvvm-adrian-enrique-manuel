@@ -46,8 +46,8 @@ export class View {
    */
   renderFigure(figure: Figure): void {
     const drawer = DrawerFactory.createDrawer(figure);
-    const randomX = Math.random() * 400 + 50;
-    const randomY = Math.random() * 400 + 50;
+    const randomX = Math.random() * 1200 + 50;
+    const randomY = Math.random() * 800 + 50;
     const randomColor = this.colors[Math.floor(Math.random() * this.colors.length)];
     drawer.draw(this.context!, randomX, randomY, randomColor);
   }

@@ -20,7 +20,7 @@ import { Controller } from './controller/controller.js';
  */
 function main(): void {
   try {
-    let numberOfFigures = parseInt(prompt('Enter the number of figures to display:') || '0');
+    const numberOfFigures = parseInt(prompt('Enter the number of figures to display:') || '0');
     
     if (isNaN(numberOfFigures) || numberOfFigures < 0) {
       throw new Error('Please enter a valid positive number.');
