@@ -19,33 +19,16 @@ import { Figure } from './figure.js';
  */
 export class Heart extends Figure {
 
+  /**
+   * @description Constructor for Heart.
+   * @param radius The radius of the heart.
+   * @throws Will throw an error if the radius is not a positive number.
+   */
   constructor(private readonly radius: number) {
     if (radius <= 0) {
       throw new Error('The radius must be a positive number.');
     }
     super();
-  }
-
-  /**
-   * @description Method to draw the heart on the canvas.
-   * @param coordinateX - X coordinate of the heart.
-   * @param coordinateY - Y coordinate of the heart.
-   * @param color - Color of the heart.
-   */
-  draw(coordinateX: number, coordinateY: number, color: string): void {
-    if (!this.context) {
-      throw new Error('Could not get the canvas context');
-    }
-
-    this.context.beginPath();
-    this.context.moveTo(coordinateX, coordinateY);
-    this.context.bezierCurveTo(coordinateX, coordinateY - this.radius / 2, coordinateX - this.radius / 2, coordinateY - this.radius / 2, coordinateX - this.radius / 2, coordinateY);
-    this.context.bezierCurveTo(coordinateX - this.radius / 2, coordinateY + this.radius / 2, coordinateX, coordinateY + this.radius / 2, coordinateX, coordinateY + this.radius);
-    this.context.bezierCurveTo(coordinateX, coordinateY + this.radius / 2, coordinateX + this.radius / 2, coordinateY + this.radius / 2, coordinateX + this.radius / 2, coordinateY);
-    this.context.bezierCurveTo(coordinateX + this.radius / 2, coordinateY - this.radius / 2, coordinateX, coordinateY - this.radius / 2, coordinateX, coordinateY);
-    this.context.closePath();
-    this.context.fillStyle = color;
-    this.context.fill();
   }
 
   /**
@@ -62,6 +45,14 @@ export class Heart extends Figure {
    */
   calculatePerimeter(): number {
     return Math.PI * this.radius;
+  }
+
+  /**
+   * @description Gets the radius of the heart.
+   * @returns The radius of the heart.
+   */
+  getRadius(): number {
+    return this.radius;
   }
 
 }

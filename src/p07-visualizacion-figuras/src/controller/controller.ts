@@ -21,25 +21,28 @@ import { FigureCreator } from '../model/figure-creator.js';
  */
 export class Controller {
 
-  private figures: Figure[] = [];
-
+  /**
+   * @description Constructor for Controller.
+   * @param view The view instance to be used by the controller.
+   */
   constructor(private view: View) {}
 
   /**
    * @description Initializes the application by generating and rendering random figures.
    */
-  initialize(numberOfFigures: number): void {
+  drawFigures(numberOfFigures: number): void {
     try {
       
+      let figures: Figure[] = [];
       for (let i: number = 0; i < numberOfFigures; i++) {
         const figure: Figure = FigureCreator.generateRandomFigure();
-        this.figures.push(figure);
+        figures.push(figure);
       }
 
-      this.view.renderFigures(this.figures);
+      this.view.renderFigures(figures);
 
     } catch (error) {
-      this.view.showError('Error initializing the application: ' + error);
+      console.error('Error drawing figures:', error);
     }
   }
 }

@@ -19,28 +19,16 @@ import { Figure } from './figure.js';
  */
 export class Square extends Figure {
 
+  /**
+   * @description Constructor for Square.
+   * @param side The length of the side of the square.
+   * @throws Will throw an error if the side length is not a positive number.
+   */
   constructor(private readonly side: number) {
     if (side <= 0) {
       throw new Error('The side must be a positive number.');
     }
     super();
-  }
-
-  /**
-   * @description Method to draw the square on the canvas.
-   * @param coordinateX - X coordinate of the square.
-   * @param coordinateY - Y coordinate of the square.
-   * @param color - Color of the square.
-   */
-  draw(coordinateX: number, coordinateY: number, color: string): void {
-    if (!this.context) {
-      throw new Error('Could not get the canvas context');
-    }
-
-    this.context.beginPath();
-    this.context.rect(coordinateX, coordinateY, this.side, this.side);
-    this.context.fillStyle = color;
-    this.context.fill();
   }
 
   /**
@@ -57,6 +45,14 @@ export class Square extends Figure {
    */
   calculatePerimeter(): number {
     return 4 * this.side;
+  }
+
+  /**
+   * @description Gets the side length of the square.
+   * @returns The side length of the square.
+   */
+  getSide(): number {
+    return this.side;
   }
 
 }

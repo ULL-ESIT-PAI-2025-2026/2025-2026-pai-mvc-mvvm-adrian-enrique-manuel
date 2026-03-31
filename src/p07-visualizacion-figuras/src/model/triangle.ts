@@ -19,30 +19,17 @@ import { Figure } from './figure.js';
  */
 export class Triangle extends Figure {
 
+  /**
+   * @description Constructor for Triangle.
+   * @param base The base of the triangle.
+   * @param height The height of the triangle.
+   * @throws Will throw an error if the base or height is not a positive number.
+   */
   constructor(private readonly base: number, private readonly height: number) {
     if (base <= 0 || height <= 0) {
       throw new Error('The base and height must be positive numbers.');
     }
     super();
-  }
-
-  /**
-   * @description Method to draw the triangle on the canvas.
-   * @param coordinateX - X coordinate of the triangle.
-   * @param coordinateY - Y coordinate of the triangle.
-   * @param color - Color of the triangle.
-   */
-  draw(coordinateX: number, coordinateY: number, color: string): void {
-    if (!this.context) {
-      throw new Error('Could not get the canvas context');
-    }
-    this.context.beginPath();
-    this.context.moveTo(coordinateX, coordinateY);
-    this.context.lineTo(coordinateX + this.base, coordinateY);
-    this.context.lineTo(coordinateX + this.base / 2, coordinateY - this.height);
-    this.context.closePath();
-    this.context.fillStyle = color;
-    this.context.fill();
   }
 
   /**
@@ -62,6 +49,22 @@ export class Triangle extends Figure {
     const side2 = Math.sqrt((this.base / 2) ** 2 + this.height ** 2);
     const side3 = side2;
     return side1 + side2 + side3;
+  }
+
+  /**
+   * @description Gets the base of the triangle.
+   * @returns The base of the triangle.
+   */
+  getBase(): number {
+    return this.base;
+  }
+
+  /**
+   * @description Gets the height of the triangle.
+   * @returns The height of the triangle.
+   */
+  getHeight(): number {
+    return this.height;
   }
 
 }

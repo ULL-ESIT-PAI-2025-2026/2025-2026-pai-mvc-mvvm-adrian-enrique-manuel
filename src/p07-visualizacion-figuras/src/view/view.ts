@@ -12,9 +12,11 @@
  */
 
 import { Figure } from '../model/figure.js';
+import { DrawerFactory } from './drawers/drawer-factory.js';
 
 /**
  * @description Class that represents the view - responsible only for presentation.
+ * Uses a DrawerFactory to create appropriate drawer strategies for each figure.
  * @class View
  */
 export class View {
@@ -22,15 +24,32 @@ export class View {
   private readonly colors: string[] = ['red', 'green', 'blue', 'yellow', 'purple', 'orange'];
 
   /**
+   * @description Constructor for View.
+   */
+  constructor(private canvas: HTMLCanvasElement = 
+                document.getElementById('canvas') as HTMLCanvasElement,
+              private context: CanvasRenderingContext2D | null = 
+                (document.getElementById('canvas') as HTMLCanvasElement).getContext('2d')) {
+                if (this.context === null) {
+                  throw new Error('No se pudo obtener el contexto del canvas.');
+                }
+                if (!this.canvas) {
+                  throw new Error('No se pudo obtener el canvas.');
+                }
+              }
+
+  /**
    * @description Method to render a figure on the canvas.
+   * Creates an appropriate drawer for the figure using the DrawerFactory
+   * and uses it to render the figure with random position and color.
    * @param figure - Figure to render.
    */
   renderFigure(figure: Figure): void {
-    figure.draw(
-      Math.random() * (figure.getCanvas().width - 100) + 50,
-      Math.random() * (figure.getCanvas().height - 100) + 50,
-      this.colors[Math.floor(Math.random() * this.colors.length)]
-    );
+    const drawer = DrawerFactory.createDrawer(figure);
+    const randomX = Math.random() * 400 + 50;
+    const randomY = Math.random() * 400 + 50;
+    const randomColor = this.colors[Math.floor(Math.random() * this.colors.length)];
+    drawer.draw(this.context!, randomX, randomY, randomColor);
   }
 
   /**
@@ -39,21 +58,5 @@ export class View {
    */
   renderFigures(figures: Figure[]): void {
     figures.forEach(figure => this.renderFigure(figure));
-  }
-
-  /**
-   * @description Displays a message in the console.
-   * @param message - Message to display.
-   */
-  showMessage(message: string): void {
-    console.log(message);
-  }
-
-  /**
-   * @description Displays an error in the console.
-   * @param error - Error to display.
-   */
-  showError(error: string): void {
-    console.error(error);
   }
 }

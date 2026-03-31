@@ -19,28 +19,16 @@ import { Figure } from './figure.js';
  */
 export class Circle extends Figure {
 
+  /**
+   * @description Constructor for Circle.
+   * @param radius The radius of the circle.
+   * @throws Will throw an error if the radius is not a positive number.
+   */
   constructor(private readonly radius: number) {
     if (radius <= 0) {
       throw new Error('The radius must be a positive number.');
     }
     super();
-  }
-
-  /**
-   * @description Method to draw the circle on the canvas.
-   * @param coordinateX - X coordinate of the circle.
-   * @param coordinateY - Y coordinate of the circle.
-   * @param color - Color of the circle.
-   */
-  draw(coordinateX: number, coordinateY: number, color: string): void {
-    if (!this.context) {
-      throw new Error('Could not get the canvas context');
-    }
-
-    this.context.beginPath();
-    this.context.arc(coordinateX, coordinateY, this.radius, 0, 2 * Math.PI);
-    this.context.fillStyle = color;
-    this.context.fill();
   }
 
   /**
@@ -57,6 +45,14 @@ export class Circle extends Figure {
    */
   calculatePerimeter(): number {
     return 2 * Math.PI * this.radius;
+  }
+
+  /**
+   * @description Gets the radius of the circle.
+   * @returns The radius of the circle.
+   */
+  getRadius(): number {
+    return this.radius;
   }
 
 }

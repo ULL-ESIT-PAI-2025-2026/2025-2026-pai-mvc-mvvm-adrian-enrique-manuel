@@ -31,7 +31,7 @@ function main(): void {
     
     const controller = new Controller(view);
     
-    controller.initialize(numberOfFigures);
+    controller.drawFigures(numberOfFigures);
 
   } catch (error) {
     console.error('Error in main application:', error);
