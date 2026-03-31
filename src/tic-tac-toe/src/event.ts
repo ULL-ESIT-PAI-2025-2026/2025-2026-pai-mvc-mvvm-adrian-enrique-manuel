@@ -37,11 +37,11 @@ export class Event<Type> {
 
   /**
    * Executes all registered listeners with the provided data.
-   * @param params - The data payload to pass to each listener.
+   * @param params The data payload to pass to each listener.
    */
   trigger(params: Type): void {
     this.listeners.forEach(listener => {
-       listener(params); 
+      listener(params); 
     });
   }
 }
