@@ -46,7 +46,7 @@ export class TicTacToeView {
    * Subscribes a listener to the event triggered when a user clicks a cell.
    * @param listener Callback function that receives the index of the clicked cell.
    */
-  public addPlayListener(listener: (move: number) => void): void {
+  addPlayListener(listener: (move: number) => void): void {
     this.playEvent.addListener(listener);
   }
 
@@ -54,7 +54,7 @@ export class TicTacToeView {
    * Builds the TicTacToe board and injects the HTML elements into the DOM.
    * It also attaches click event listeners to each cell.
    */
-  public render(): void {
+  render(): void {
     const board = document.createElement('div');
     board.className = 'board';
     this.cells = Array(9).fill(null).map((_, i) => {
@@ -81,7 +81,7 @@ export class TicTacToeView {
    * Updates a specific cell in the DOM with the corresponding player's symbol.
    * @param data Object containing the cell index and the player.
    */
-  public updateCell(data: UpdateCellData): void {
+  updateCell(data: UpdateCellData): void {
     if (this.cells[data.move]) {
       this.cells[data.move].innerHTML = data.player;
     }
@@ -91,14 +91,14 @@ export class TicTacToeView {
    * Displays the victory message on the screen.
    * @param winner The player who has won the game.
    */
-  public victory(winner: Player): void {
+  victory(winner: Player): void {
     this.message.innerHTML = `${winner} wins!`;
   }
 
   /**
    * Displays the draw message on the screen.
    */
-  public draw(): void {
-    this.message.innerHTML = "It's a draw!";
+  draw(): void {
+    this.message.innerHTML = 'It\'s a draw!';
   }
 }

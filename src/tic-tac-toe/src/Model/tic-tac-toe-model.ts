@@ -63,7 +63,7 @@ export class TicTacToeModel {
    * Subscribes a listener to be notified whenever a cell on the board is updated.
    * @param listener Callback function receiving the move index and player.
    */
-  public addUpdateCellListener(listener: (data: UpdateCellData) => void): void {
+  addUpdateCellListener(listener: (data: UpdateCellData) => void): void {
     this.updateCellEvent.addListener(listener);
   }
 
@@ -71,7 +71,7 @@ export class TicTacToeModel {
    * Subscribes a listener to be notified when a player wins the game.
    * @param listener Callback function receiving the winning player.
    */
-  public addVictoryListener(listener: (player: Player) => void): void {
+  addVictoryListener(listener: (player: Player) => void): void {
     this.victoryEvent.addListener(listener);
   }
 
@@ -79,16 +79,16 @@ export class TicTacToeModel {
    * Subscribes a listener to be notified when the game ends in a draw.
    * @param listener Callback function executed on a draw.
    */
-  public addDrawListener(listener: () => void): void {
+  addDrawListener(listener: () => void): void {
     this.drawEvent.addListener(listener);
   }
 
   /**
    * Attempts to play a move for the current player at the specified position.
-   * * @param move - The index of the board cell (0-8) to play in.
-   * @returns `true` if the move was valid and executed, `false` otherwise.
+   * @param move The index of the board cell to play in.
+   * @returns true if the move was valid and executed, false otherwise.
    */
-  public play(move: number): boolean {
+  play(move: number): boolean {
     if (this.finished || move < 0 || move > 8 || this.board[move] !== null) { 
       return false; 
     }
@@ -108,7 +108,7 @@ export class TicTacToeModel {
   /**
    * Evaluates the current board state to check for a winning combination.
    * Triggers the victory event if a win is detected.
-   * * @returns `true` if there is a winning combination, `false` otherwise.
+   * @returns true if there is a winning combination, false otherwise.
    */
   private victory(): boolean {
     const lines = [
@@ -133,7 +133,7 @@ export class TicTacToeModel {
   /**
    * Evaluates the current board state to check if it is completely full.
    * Triggers the draw event if there are no empty cells left.
-   * * @returns `true` if there has been a draw, `false` otherwise. 
+   * @returns true if there has been a draw, false otherwise. 
    */
   private draw(): boolean {
     const isDraw = this.board.every(cell => cell !== null);

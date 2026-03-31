@@ -49,7 +49,7 @@ export class TicTacToeController {
   /**
    * Starts the application by rendering the initial view.
    */
-  public run(): void {
+  run(): void {
     this.view.render();
   }
 }
