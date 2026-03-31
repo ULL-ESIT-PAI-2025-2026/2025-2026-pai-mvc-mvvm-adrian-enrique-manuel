@@ -22,9 +22,9 @@ import {TicTacToeView} from '../View/tic-tac-toe-view.js';
  */
 export class TicTacToeController {
   /**
-   * 
-   * @param model 
-   * @param view 
+   * Creates a new instance of the TicTacToeController.
+   * @param model Model that contains the information of the game.
+   * @param view Interface used to display the model.
    */
   constructor(private readonly model: TicTacToeModel,
               private readonly view: TicTacToeView) {
