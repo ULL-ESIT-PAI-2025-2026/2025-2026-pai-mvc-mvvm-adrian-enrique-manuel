@@ -11,11 +11,10 @@
  * @desc Class that represents a triangle - Model.
  */
 
-import { Figure } from './figure.js';
+import { Figure } from './p07-figure.js';
 
 /**
  * Class that represents a triangle - Model.
- * @class Triangle
  */
 export class Triangle extends Figure {
 

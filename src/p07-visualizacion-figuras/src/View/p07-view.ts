@@ -11,13 +11,12 @@
  * @desc Class that represents the view - MVC View.
  */
 
-import { Figure } from '../model/figure.js';
-import { DrawerFactory } from './drawers/drawer-factory.js';
+import { Figure } from '../Model/p07-figure.js';
+import { DrawerFactory } from './Drawers/p07-drawer-factory.js';
 
 /**
- * Class that represents the view - responsible only for presentation.
+ * Class that represents the view
  * Uses a DrawerFactory to create appropriate drawer strategies for each figure.
- * @class View
  */
 export class View {
 
@@ -26,23 +25,21 @@ export class View {
   /**
    * Constructor for View.
    */
-  constructor(private canvas: HTMLCanvasElement = 
-                document.getElementById('canvas') as HTMLCanvasElement,
-              private context: CanvasRenderingContext2D | null = 
-                (document.getElementById('canvas') as HTMLCanvasElement).getContext('2d')) {
-                if (this.context === null) {
-                  throw new Error('No se pudo obtener el contexto del canvas.');
-                }
-                if (!this.canvas) {
-                  throw new Error('No se pudo obtener el canvas.');
-                }
-              }
+  constructor(private canvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCanvasElement,
+              private context: CanvasRenderingContext2D = (document.getElementById('canvas') as HTMLCanvasElement).getContext('2d')!) {
+    if (this.context === null) {
+      throw new Error('No se pudo obtener el contexto del canvas.');
+    }
+    if (!this.canvas) {
+      throw new Error('No se pudo obtener el canvas.');
+    }
+  }
 
   /**
    * Method to render a figure on the canvas.
    * Creates an appropriate drawer for the figure using the DrawerFactory
    * and uses it to render the figure with random position and color.
-   * @param figure - Figure to render.
+   * @param figure Figure to render.
    */
   renderFigure(figure: Figure): void {
     const drawer = DrawerFactory.createDrawer(figure);
@@ -54,7 +51,7 @@ export class View {
 
   /**
    * Method to render multiple figures on the canvas.
-   * @param figures - Array of figures to render.
+   * @param figures Array of figures to render.
    */
   renderFigures(figures: Figure[]): void {
     figures.forEach(figure => this.renderFigure(figure));

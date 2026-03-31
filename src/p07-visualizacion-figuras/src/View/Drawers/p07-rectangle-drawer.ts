@@ -11,28 +11,27 @@
  * @desc Strategy class for drawing rectangles - View.
  */
 
-import { Drawer } from './drawer.js';
+import { Drawer } from './p07-drawer.js';
 
 /**
  * Strategy class for drawing rectangle figures.
  * Implements the Drawer interface to provide rectangle-specific rendering logic.
- * @class RectangleDrawer
  */
 export class RectangleDrawer implements Drawer {
 
   /**
    * Constructor for RectangleDrawer.
-   * @param width - The width of the rectangle.
-   * @param height - The height of the rectangle.
+   * @param width The width of the rectangle.
+   * @param height The height of the rectangle.
    */
   constructor(private readonly width: number, private readonly height: number) {}
 
   /**
    * Draws a rectangle on the canvas with the specified position and color.
-   * @param context - The canvas rendering context.
-   * @param coordinateX - X coordinate of the rectangle's top-left corner.
-   * @param coordinateY - Y coordinate of the rectangle's top-left corner.
-   * @param color - Color to fill the rectangle with.
+   * @param context The canvas rendering context.
+   * @param coordinateX X coordinate of the rectangle's top-left corner.
+   * @param coordinateY Y coordinate of the rectangle's top-left corner.
+   * @param color Color to fill the rectangle with.
    */
   draw(context: CanvasRenderingContext2D, coordinateX: number, coordinateY: number, color: string): void {
     context.beginPath();

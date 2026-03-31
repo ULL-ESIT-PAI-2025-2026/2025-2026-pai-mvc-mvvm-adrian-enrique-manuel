@@ -11,11 +11,10 @@
  * @desc Class that represents a square - Model.
  */
 
-import { Figure } from './figure.js';
+import { Figure } from './p07-figure.js';
 
 /**
  * Class that represents a square - Model.
- * @class Square
  */
 export class Square extends Figure {
 

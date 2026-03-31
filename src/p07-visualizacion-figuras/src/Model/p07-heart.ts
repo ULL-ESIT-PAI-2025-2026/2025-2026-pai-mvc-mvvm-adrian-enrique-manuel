@@ -11,11 +11,10 @@
  * @desc Class that represents a heart - Model.
  */
 
-import { Figure } from './figure.js';
+import { Figure } from './p07-figure.js';
 
 /**
  * Class that represents a heart - Model.
- * @class Heart
  */
 export class Heart extends Figure {
 

@@ -11,28 +11,27 @@
  * @desc Strategy class for drawing triangles - View.
  */
 
-import { Drawer } from './drawer.js';
+import { Drawer } from './p07-drawer.js';
 
 /**
  * Strategy class for drawing triangle figures.
  * Implements the Drawer interface to provide triangle-specific rendering logic.
- * @class TriangleDrawer
  */
 export class TriangleDrawer implements Drawer {
 
   /**
    * Constructor for TriangleDrawer.
-   * @param base - The base of the triangle.
-   * @param height - The height of the triangle.
+   * @param base The base of the triangle.
+   * @param height The height of the triangle.
    */
   constructor(private readonly base: number, private readonly height: number) {}
 
   /**
    * Draws a triangle on the canvas with the specified position and color.
-   * @param context - The canvas rendering context.
-   * @param coordinateX - X coordinate of the triangle's base start point.
-   * @param coordinateY - Y coordinate of the triangle's base start point.
-   * @param color - Color to fill the triangle with.
+   * @param context The canvas rendering context.
+   * @param coordinateX X coordinate of the triangle's base start point.
+   * @param coordinateY Y coordinate of the triangle's base start point.
+   * @param color Color to fill the triangle with.
    */
   draw(context: CanvasRenderingContext2D, coordinateX: number, coordinateY: number, color: string): void {
     context.beginPath();

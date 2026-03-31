@@ -11,13 +11,12 @@
  * @desc Class that represents a controller - Controller.
  */
 
-import { View } from '../view/view.js';
-import { Figure } from '../model/figure.js';
-import { FigureCreator } from '../model/figure-creator.js';
+import { View } from '../View/p07-view.js';
+import { Figure } from '../Model/p07-figure.js';
+import { FigureCreator } from '../Model/p07-figure-creator.js';
 
 /**
  * Controller class that coordinates between the Model and the View.
- * @class Controller
  */
 export class Controller {
 

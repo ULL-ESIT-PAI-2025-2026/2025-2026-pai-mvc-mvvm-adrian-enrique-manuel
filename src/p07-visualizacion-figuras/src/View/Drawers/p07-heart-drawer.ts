@@ -11,27 +11,26 @@
  * @desc Strategy class for drawing hearts - View.
  */
 
-import { Drawer } from './drawer.js';
+import { Drawer } from './p07-drawer.js';
 
 /**
  * Strategy class for drawing heart figures.
  * Implements the Drawer interface to provide heart-specific rendering logic.
- * @class HeartDrawer
  */
 export class HeartDrawer implements Drawer {
 
   /**
    * Constructor for HeartDrawer.
-   * @param radius - The radius of the heart.
+   * @param radius The radius of the heart.
    */
   constructor(private readonly radius: number) {}
 
   /**
    * Draws a heart on the canvas with the specified position and color.
-   * @param context - The canvas rendering context.
-   * @param coordinateX - X coordinate of the heart's center.
-   * @param coordinateY - Y coordinate of the heart's center.
-   * @param color - Color to fill the heart with.
+   * @param context The canvas rendering context.
+   * @param coordinateX X coordinate of the heart's center.
+   * @param coordinateY Y coordinate of the heart's center.
+   * @param color Color to fill the heart with.
    */
   draw(context: CanvasRenderingContext2D, coordinateX: number, coordinateY: number, color: string): void {
     context.beginPath();

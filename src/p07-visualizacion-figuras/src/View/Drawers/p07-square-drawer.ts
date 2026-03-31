@@ -11,27 +11,26 @@
  * @desc Strategy class for drawing squares - View.
  */
 
-import { Drawer } from './drawer.js';
+import { Drawer } from './p07-drawer.js';
 
 /**
  * Strategy class for drawing square figures.
  * Implements the Drawer interface to provide square-specific rendering logic.
- * @class SquareDrawer
  */
 export class SquareDrawer implements Drawer {
 
   /**
    * Constructor for SquareDrawer.
-   * @param side - The side length of the square.
+   * @param side The side length of the square.
    */
   constructor(private readonly side: number) {}
 
   /**
    * Draws a square on the canvas with the specified position and color.
-   * @param context - The canvas rendering context.
-   * @param coordinateX - X coordinate of the square's top-left corner.
-   * @param coordinateY - Y coordinate of the square's top-left corner.
-   * @param color - Color to fill the square with.
+   * @param context The canvas rendering context.
+   * @param coordinateX X coordinate of the square's top-left corner.
+   * @param coordinateY Y coordinate of the square's top-left corner.
+   * @param color Color to fill the square with.
    */
   draw(context: CanvasRenderingContext2D, coordinateX: number, coordinateY: number, color: string): void {
     context.beginPath();

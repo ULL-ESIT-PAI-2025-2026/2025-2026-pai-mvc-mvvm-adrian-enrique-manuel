@@ -11,30 +11,29 @@
  * @desc Factory class for creating figure drawers - View.
  */
 
-import { Figure } from '../../model/figure.js';
-import { Triangle } from '../../model/triangle.js';
-import { Circle } from '../../model/circle.js';
-import { Rectangle } from '../../model/rectangle.js';
-import { Square } from '../../model/square.js';
-import { Heart } from '../../model/heart.js';
-import { Drawer } from './drawer.js';
-import { TriangleDrawer } from './triangle-drawer.js';
-import { CircleDrawer } from './circle-drawer.js';
-import { RectangleDrawer } from './rectangle-drawer.js';
-import { SquareDrawer } from './square-drawer.js';
-import { HeartDrawer } from './heart-drawer.js';
+import { Figure } from '../../Model/p07-figure.js';
+import { Triangle } from '../../Model/p07-triangle.js';
+import { Circle } from '../../Model/p07-circle.js';
+import { Rectangle } from '../../Model/p07-rectangle.js';
+import { Square } from '../../Model/p07-square.js';
+import { Heart } from '../../Model/p07-heart.js';
+import { Drawer } from './p07-drawer.js';
+import { TriangleDrawer } from './p07-triangle-drawer.js';
+import { CircleDrawer } from './p07-circle-drawer.js';
+import { RectangleDrawer } from './p07-rectangle-drawer.js';
+import { SquareDrawer } from './p07-square-drawer.js';
+import { HeartDrawer } from './p07-heart-drawer.js';
 
 /**
  * Factory class that creates the appropriate drawer for a given figure.
  * This class implements the Factory pattern to decouple the creation of drawers
  * from the figure classes themselves.
- * @class DrawerFactory
  */
 export class DrawerFactory {
 
   /**
    * Creates a drawer for the given figure.
-   * @param figure - The figure for which to create a drawer.
+   * @param figure The figure for which to create a drawer.
    * @returns A drawer appropriate for the given figure.
    * @throws Error if the figure type is not recognized.
    */

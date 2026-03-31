@@ -11,11 +11,10 @@
  * @desc Class that represents a rectangle - Model.
  */
 
-import { Figure } from './figure.js';
+import { Figure } from './p07-figure.js';
 
 /**
  * Class that represents a rectangle - Model.
- * @class Rectangle
  */
 export class Rectangle extends Figure {
 

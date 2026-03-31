@@ -15,7 +15,6 @@
  * Abstract class that represents a geometric figure in the model.
  * Responsibilities: Store geometric properties and compute area/perimeter.
  * Rendering is delegated to the View layer via drawer classes.
- * @class Figure
  */
 export abstract class Figure {
 

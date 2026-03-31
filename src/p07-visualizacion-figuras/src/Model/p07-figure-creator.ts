@@ -12,16 +12,15 @@
  *
 */
 
-import { Figure } from "./figure.js";
-import { Square } from "./square.js";
-import { Rectangle } from "./rectangle.js";
-import { Circle } from "./circle.js";
-import { Triangle } from "./triangle.js";
-import { Heart } from "./heart.js";
+import { Figure } from "./p07-figure.js";
+import { Square } from "./p07-square.js";
+import { Rectangle } from "./p07-rectangle.js";
+import { Circle } from "./p07-circle.js";
+import { Triangle } from "./p07-triangle.js";
+import { Heart } from "./p07-heart.js";
 
 /**
  * FigureCreator class that generates random geometric figures - Factory Pattern.
- * @class FigureCreator
  */
 export class FigureCreator {
   static readonly MIN_SIZE: number = 100;

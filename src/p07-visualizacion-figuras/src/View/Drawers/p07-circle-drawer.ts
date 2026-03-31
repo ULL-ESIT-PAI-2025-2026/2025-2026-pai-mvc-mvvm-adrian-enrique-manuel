@@ -11,27 +11,26 @@
  * @desc Strategy class for drawing circles - View.
  */
 
-import { Drawer } from './drawer.js';
+import { Drawer } from './p07-drawer.js';
 
 /**
  * Strategy class for drawing circle figures.
  * Implements the Drawer interface to provide circle-specific rendering logic.
- * @class CircleDrawer
  */
 export class CircleDrawer implements Drawer {
 
   /**
    * Constructor for CircleDrawer.
-   * @param radius - The radius of the circle.
+   * @param radius The radius of the circle.
    */
   constructor(private readonly radius: number) {}
 
   /**
    * Draws a circle on the canvas with the specified position and color.
-   * @param context - The canvas rendering context.
-   * @param coordinateX - X coordinate of the circle's center.
-   * @param coordinateY - Y coordinate of the circle's center.
-   * @param color - Color to fill the circle with.
+   * @param context The canvas rendering context.
+   * @param coordinateX X coordinate of the circle's center.
+   * @param coordinateY Y coordinate of the circle's center.
+   * @param color Color to fill the circle with.
    */
   draw(context: CanvasRenderingContext2D, coordinateX: number, coordinateY: number, color: string): void {
     context.beginPath();

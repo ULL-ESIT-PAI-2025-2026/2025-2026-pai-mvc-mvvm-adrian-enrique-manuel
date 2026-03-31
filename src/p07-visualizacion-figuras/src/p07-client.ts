@@ -11,8 +11,8 @@
  * @desc Main client that starts the application for visualizing geometric figures using the MVC pattern.
  */
 
-import { View } from './view/view.js';
-import { Controller } from './controller/controller.js';
+import { View } from './View/p07-view.js';
+import { Controller } from './Controller/p07-controller.js';
 
 /**
  * Main function that runs when the page loads.

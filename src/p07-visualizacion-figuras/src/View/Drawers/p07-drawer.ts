@@ -15,16 +15,15 @@
  * Interface that defines the contract for a figure drawer.
  * This interface is used to implement the Strategy pattern, allowing
  * different drawing strategies for different figure types.
- * @interface Drawer
  */
 export interface Drawer {
 
   /**
    * Draws a figure on the canvas.
-   * @param context - The canvas rendering context.
-   * @param coordinateX - X coordinate where the figure will be drawn.
-   * @param coordinateY - Y coordinate where the figure will be drawn.
-   * @param color - Color to fill the figure with.
+   * @param context The canvas rendering context.
+   * @param coordinateX X coordinate where the figure will be drawn.
+   * @param coordinateY Y coordinate where the figure will be drawn.
+   * @param color Color to fill the figure with.
    */
   draw(context: CanvasRenderingContext2D, coordinateX: number, coordinateY: number, color: string): void;
 

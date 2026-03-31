@@ -11,11 +11,10 @@
  * @desc Class that represents a circle - Model.
  */
 
-import { Figure } from './figure.js';
+import { Figure } from './p07-figure.js';
 
 /**
  * Class that represents a circle - Model.
- * @class Circle
  */
 export class Circle extends Figure {
 
