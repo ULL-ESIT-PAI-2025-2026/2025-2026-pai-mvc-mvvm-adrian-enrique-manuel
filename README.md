@@ -1,20 +1,72 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/J0-W4Fn3)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=23201982&assignment_repo_type=AssignmentRepo)
-## PAI class Presentation Template 
-### To be used for works to be exposed in class sessions
+# MVC and MVVM Architecture Implementations
 
-This directory is organised as follows:
+This repository contains practical implementations of architectural patterns for interactive applications, developed for the PAI (Programación de Aplicaciones Interactivas) course at Universidad de La Laguna.
 
-      .
-      ├── bib          # Presentation bibliography and references
-      ├── slides       # slides of your presentation (PDF is the preferred format)
-      ├── tests        # Source code for tests (if applicable)
-      ├── src          # Source code (add subdirectories if necessary) 
-      
-When you receive the link to this repository, clone it and use it to host all the material for the work to be done: slides, code, etc.
+## Project Structure
 
-Upload the link to this public repository to the class assignment. This is required for the evaluation of the work.
+```
+.
+├── bib/                          # Bibliography and reference materials
+├── slides/                       # Presentation slides
+├── src/                          # Source code
+│   ├── MVVM/                     # Model-View-ViewModel pattern implementation
+│   ├── p07-visualizacion-figuras/  # Geometric figures visualization with MVC
+│   ├── tic-tac-toe/              # Tic-tac-toe game implementation
+│   └── todo-list/                # Todo list application
+├── web-server/                   # Express web server
+└── public/                       # Static assets
+```
 
-Post the link to the repository in the PAI forum before the presentation date of the work, so that all students have access to the material in the exposition session.
+### How to Run
 
-Remove from the repository those directories that are not necessary for your work.
+#### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/ULL-ESIT-PAI-2025-2026/2025-2026-pai-mvc-mvvm-adrian-enrique-manuel.git
+
+cd 2025-2026-pai-mvc-mvvm-adrian-enrique-manuel
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+#### Running the Application
+
+1. Build the TypeScript files:
+
+```bash
+npx tsc
+```
+
+2. Open your browser and navigate to the application:
+
+   ```bash
+   npm start
+   ```
+   Then navigate to:
+   ```
+   http://localhost:8080
+   ```
+
+### Authors
+
+- Adrian Perez Poleo (adrian.perez.46@ull.edu.es)
+- Enrique Gomez Diaz (enrique.gomez.13@ull.edu.es)
+- Manuel Cadenas Garcia (manuel.cadenas.25@ull.edu.es)
+
+### License
+
+MIT License - See LICENSE file for details
+
+### Course Information
+
+Universidad de La Laguna\
+Escuela Superior de Ingenieria y Tecnologia\
+Grado en Ingenieria Informatica\
+Programacion de Aplicaciones Interactivas (PAI)\
+Academic Year: 2025-2026
