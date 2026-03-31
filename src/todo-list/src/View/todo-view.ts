@@ -121,7 +121,7 @@ export class View {
    * @param handler Function that takes the text of the new todo and adds it to the list.
    */
   onAddTodo(handler: (text: string) => void): void {
-    this.form.addEventListener('submit', (event: SubmitEvent) => {
+    this.submitButton.addEventListener('click', (event: MouseEvent) => {
       event.preventDefault();
       const text = this.getInputText();
       if (text) {

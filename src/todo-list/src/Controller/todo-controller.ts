@@ -35,19 +35,11 @@ export class Controller {
     this.view.onDeleteTodo(this.handleDeleteTodo);
     this.view.onToggleTodo(this.handleToggleTodo);
 
-    this.model.onChange(this.handleTodoListChange);
+    this.model.subscribeToChanges(this.handleTodoListChange);
 
     // Display initial todos from localStorage
     this.handleTodoListChange(this.model.getTodos());
   }
-
-  /**
-   * Callback function that gets called whenever the todo list changes in the model.
-   * @param todos The updated list of todos to display in the view.
-   */
-  private handleTodoListChange = (todos: Todo[]): void => {
-    this.view.displayTodos(todos);
-  };
 
   /**
    * Event handler for adding a new todo.
@@ -80,5 +72,13 @@ export class Controller {
    */
   private handleToggleTodo = (id: number): void => {
     this.model.toggleTodo(id);
+  };
+
+  /**
+   * Callback function that gets called whenever the todo list changes in the model.
+   * @param todos The updated list of todos to display in the view.
+   */
+  private handleTodoListChange = (todos: Todo[]): void => {
+    this.view.displayTodos(todos);
   };
 }

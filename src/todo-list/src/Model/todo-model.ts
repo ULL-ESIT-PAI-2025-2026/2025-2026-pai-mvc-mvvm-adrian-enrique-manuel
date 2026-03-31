@@ -28,6 +28,15 @@ export class Model {
     this.todos = stored ? JSON.parse(stored) as Todo[] : [];
   }
 
+  /** 
+   * Registers the callback that view through the controller will use to refresh the UI.
+   * @param callback Function to call when the todo list changes,
+   *    receiving the updated list of todos.
+   */
+  subscribeToChanges(callback: (todos: Todo[]) => void): void {
+    this.observers.push(callback);
+  }
+
   /**
    * Adds a new todo to the list with the given text, assigning it a unique ID.
    * @param todoText The text description of the new todo item.
@@ -38,7 +47,8 @@ export class Model {
       text: todoText,
       complete: false,
     };
-    this.commit([...this.todos, todo]);
+    this.storeInLocal([...this.todos, todo]);
+    this.notify();
   }
 
   /**
@@ -47,11 +57,12 @@ export class Model {
    * @param updatedText The new text to update the todo with.
    */
   editTodo(id: number, updatedText: string): void {
-    this.commit(
+    this.storeInLocal(
       this.todos.map((todo) =>
         todo.id === id ? { ...todo, text: updatedText } : todo
       )
     );
+    this.notify();
   }
 
   /**
@@ -59,7 +70,8 @@ export class Model {
    * @param id The unique identifier of the todo to delete.
    */
   deleteTodo(id: number): void {
-    this.commit(this.todos.filter((todo) => todo.id !== id));
+    this.storeInLocal(this.todos.filter((todo) => todo.id !== id));
+    this.notify();
   }
 
   /**
@@ -67,20 +79,12 @@ export class Model {
    * @param id The unique identifier of the todo to toggle.
    */
   toggleTodo(id: number): void {
-    this.commit(
+    this.storeInLocal(
       this.todos.map((todo) =>
         todo.id === id ? { ...todo, complete: !todo.complete } : todo
       )
     );
-  }
-
-  /** 
-   * Registers the callback that view through the controller will use to refresh the UI.
-   * @param callback Function to call when the todo list changes,
-   *    receiving the updated list of todos.
-   */
-  onChange(callback: (todos: Todo[]) => void): void {
-    this.observers.push(callback);
+    this.notify();
   }
 
   /**
@@ -92,12 +96,18 @@ export class Model {
   }
 
   /**
+   * Notifies all registered observers about the current state of the todo list.
+   */
+  private notify(): void {
+    this.observers.forEach((callback) => callback(this.todos));
+  }
+
+  /**
    * Persists state and notifies the observer.
    * @param todos The updated list of todos to save and notify about.
    */
-  private commit(todos: Todo[]): void {
+  private storeInLocal(todos: Todo[]): void {
     this.todos = todos;
     localStorage.setItem('todos', JSON.stringify(todos));
-    this.observers.forEach((observer) => observer(todos));
   }
 }
