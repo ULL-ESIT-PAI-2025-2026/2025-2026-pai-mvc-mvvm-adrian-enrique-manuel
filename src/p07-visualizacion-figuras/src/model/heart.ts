@@ -8,19 +8,19 @@
  * @author Enrique Gómez Díaz <enrique.gomez.13@ull.edu.es>
  * @author Manuel Cadenas García <manuel.cadenas.25@ull.edu.es>
  * @since Mar 20 2026
- * @description Class that represents a heart - Model.
+ * @desc Class that represents a heart - Model.
  */
 
 import { Figure } from './figure.js';
 
 /**
- * @description Class that represents a heart - Model.
+ * Class that represents a heart - Model.
  * @class Heart
  */
 export class Heart extends Figure {
 
   /**
-   * @description Constructor for Heart.
+   * Constructor for Heart.
    * @param radius The radius of the heart.
    * @throws Will throw an error if the radius is not a positive number.
    */
@@ -32,7 +32,7 @@ export class Heart extends Figure {
   }
 
   /**
-   * @description Method to calculate the area of the heart.
+   * Method to calculate the area of the heart.
    * @returns The area of the heart.
    */
   calculateArea(): number {
@@ -40,7 +40,7 @@ export class Heart extends Figure {
   }
 
   /**
-   * @description Method to calculate the perimeter of the heart.
+   * Method to calculate the perimeter of the heart.
    * @returns The perimeter of the heart.
    */
   calculatePerimeter(): number {
@@ -48,7 +48,7 @@ export class Heart extends Figure {
   }
 
   /**
-   * @description Gets the radius of the heart.
+   * Gets the radius of the heart.
    * @returns The radius of the heart.
    */
   getRadius(): number {

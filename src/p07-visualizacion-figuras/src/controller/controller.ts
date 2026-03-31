@@ -8,7 +8,7 @@
  * @author Enrique Gómez Díaz <enrique.gomez.13@ull.edu.es>
  * @author Manuel Cadenas García <manuel.cadenas.25@ull.edu.es>
  * @since Mar 20 2026
- * @description Class that represents a controller - Controller.
+ * @desc Class that represents a controller - Controller.
  */
 
 import { View } from '../view/view.js';
@@ -16,19 +16,19 @@ import { Figure } from '../model/figure.js';
 import { FigureCreator } from '../model/figure-creator.js';
 
 /**
- * @description Controller class that coordinates between the Model and the View.
+ * Controller class that coordinates between the Model and the View.
  * @class Controller
  */
 export class Controller {
 
   /**
-   * @description Constructor for Controller.
+   * Constructor for Controller.
    * @param view The view instance to be used by the controller.
    */
   constructor(private view: View) {}
 
   /**
-   * @description Initializes the application by generating and rendering random figures.
+   * Initializes the application by generating and rendering random figures.
    */
   drawFigures(numberOfFigures: number): void {
     try {

@@ -8,14 +8,14 @@
  * @author Enrique Gómez Díaz <enrique.gomez.13@ull.edu.es>
  * @author Manuel Cadenas García <manuel.cadenas.25@ull.edu.es>
  * @since Mar 20 2026
- * @description Class that represents the view - MVC View.
+ * @desc Class that represents the view - MVC View.
  */
 
 import { Figure } from '../model/figure.js';
 import { DrawerFactory } from './drawers/drawer-factory.js';
 
 /**
- * @description Class that represents the view - responsible only for presentation.
+ * Class that represents the view - responsible only for presentation.
  * Uses a DrawerFactory to create appropriate drawer strategies for each figure.
  * @class View
  */
@@ -24,7 +24,7 @@ export class View {
   private readonly colors: string[] = ['red', 'green', 'blue', 'yellow', 'purple', 'orange'];
 
   /**
-   * @description Constructor for View.
+   * Constructor for View.
    */
   constructor(private canvas: HTMLCanvasElement = 
                 document.getElementById('canvas') as HTMLCanvasElement,
@@ -39,7 +39,7 @@ export class View {
               }
 
   /**
-   * @description Method to render a figure on the canvas.
+   * Method to render a figure on the canvas.
    * Creates an appropriate drawer for the figure using the DrawerFactory
    * and uses it to render the figure with random position and color.
    * @param figure - Figure to render.
@@ -53,7 +53,7 @@ export class View {
   }
 
   /**
-   * @description Method to render multiple figures on the canvas.
+   * Method to render multiple figures on the canvas.
    * @param figures - Array of figures to render.
    */
   renderFigures(figures: Figure[]): void {

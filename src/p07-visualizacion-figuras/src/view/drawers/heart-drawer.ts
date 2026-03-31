@@ -8,26 +8,26 @@
  * @author Enrique Gómez Díaz <enrique.gomez.13@ull.edu.es>
  * @author Manuel Cadenas García <manuel.cadenas.25@ull.edu.es>
  * @since Mar 31 2026
- * @description Strategy class for drawing hearts - View.
+ * @desc Strategy class for drawing hearts - View.
  */
 
 import { Drawer } from './drawer.js';
 
 /**
- * @description Strategy class for drawing heart figures.
+ * Strategy class for drawing heart figures.
  * Implements the Drawer interface to provide heart-specific rendering logic.
  * @class HeartDrawer
  */
 export class HeartDrawer implements Drawer {
 
   /**
-   * @description Constructor for HeartDrawer.
+   * Constructor for HeartDrawer.
    * @param radius - The radius of the heart.
    */
   constructor(private readonly radius: number) {}
 
   /**
-   * @description Draws a heart on the canvas with the specified position and color.
+   * Draws a heart on the canvas with the specified position and color.
    * @param context - The canvas rendering context.
    * @param coordinateX - X coordinate of the heart's center.
    * @param coordinateY - Y coordinate of the heart's center.

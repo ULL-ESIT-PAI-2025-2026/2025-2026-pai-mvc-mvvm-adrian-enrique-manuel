@@ -8,19 +8,19 @@
  * @author Enrique Gómez Díaz <enrique.gomez.13@ull.edu.es>
  * @author Manuel Cadenas García <manuel.cadenas.25@ull.edu.es>
  * @since Mar 20 2026
- * @description Class that represents a square - Model.
+ * @desc Class that represents a square - Model.
  */
 
 import { Figure } from './figure.js';
 
 /**
- * @description Class that represents a square - Model.
+ * Class that represents a square - Model.
  * @class Square
  */
 export class Square extends Figure {
 
   /**
-   * @description Constructor for Square.
+   * Constructor for Square.
    * @param side The length of the side of the square.
    * @throws Will throw an error if the side length is not a positive number.
    */
@@ -32,7 +32,7 @@ export class Square extends Figure {
   }
 
   /**
-   * @description Method to calculate the area of the square.
+   * Method to calculate the area of the square.
    * @returns The area of the square.
    */
   calculateArea(): number {
@@ -40,7 +40,7 @@ export class Square extends Figure {
   }
 
   /**
-   * @description Method to calculate the perimeter of the square.
+   * Method to calculate the perimeter of the square.
    * @returns The perimeter of the square.
    */
   calculatePerimeter(): number {
@@ -48,7 +48,7 @@ export class Square extends Figure {
   }
 
   /**
-   * @description Gets the side length of the square.
+   * Gets the side length of the square.
    * @returns The side length of the square.
    */
   getSide(): number {

@@ -8,7 +8,7 @@
  * @author Enrique Gómez Díaz <enrique.gomez.13@ull.edu.es>
  * @author Manuel Cadenas García <manuel.cadenas.25@ull.edu.es>
  * @since 25 de marzo 2026
- * @description Implementation of the FigureCreator class - MVC Model.
+ * @desc Implementation of the FigureCreator class - MVC Model.
  *
 */
 
@@ -20,7 +20,7 @@ import { Triangle } from "./triangle.js";
 import { Heart } from "./heart.js";
 
 /**
- * @description FigureCreator class that generates random geometric figures - Factory Pattern.
+ * FigureCreator class that generates random geometric figures - Factory Pattern.
  * @class FigureCreator
  */
 export class FigureCreator {
@@ -28,7 +28,7 @@ export class FigureCreator {
   static readonly MAX_SIZE: number = 300;
 
   /**
-   * @description Generates a random geometric figure.
+   * Generates a random geometric figure.
    * @returns A random geometric figure.
    */
   static generateRandomFigure(): Figure {
@@ -52,7 +52,7 @@ export class FigureCreator {
 }
 
 /**
- * @description Generates a random number between two values.
+ * Generates a random number between two values.
  * @param min - Minimum value.
  * @param max - Maximum value.
  * @returns A random number between min and max.

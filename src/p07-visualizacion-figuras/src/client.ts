@@ -8,16 +8,15 @@
  * @author Enrique Gómez Díaz <enrique.gomez.13@ull.edu.es>
  * @author Manuel Cadenas García <manuel.cadenas.25@ull.edu.es>
  * @since Mar 20 2026
- * @description Main client that starts the application for visualizing
- *              geometric figures using the MVC pattern.
+ * @desc Main client that starts the application for visualizing geometric figures using the MVC pattern.
  */
 
 import { View } from './view/view.js';
 import { Controller } from './controller/controller.js';
 
 /**
- * @description Main function that runs when the page loads.
- *              Implements the MVC pattern for visualizing geometric figures.
+ * Main function that runs when the page loads.
+ * Implements the MVC pattern for visualizing geometric figures.
  */
 function main(): void {
   try {

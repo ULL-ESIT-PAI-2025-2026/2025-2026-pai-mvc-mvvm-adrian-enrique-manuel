@@ -8,19 +8,19 @@
  * @author Enrique Gómez Díaz <enrique.gomez.13@ull.edu.es>
  * @author Manuel Cadenas García <manuel.cadenas.25@ull.edu.es>
  * @since Mar 20 2026
- * @description Class that represents a rectangle - Model.
+ * @desc Class that represents a rectangle - Model.
  */
 
 import { Figure } from './figure.js';
 
 /**
- * @description Class that represents a rectangle - Model.
+ * Class that represents a rectangle - Model.
  * @class Rectangle
  */
 export class Rectangle extends Figure {
 
   /**
-   * @description Constructor for Rectangle.
+   * Constructor for Rectangle.
    * @param width The width of the rectangle.
    * @param height The height of the rectangle.
    * @throws Will throw an error if the width or height is not a positive number.
@@ -33,7 +33,7 @@ export class Rectangle extends Figure {
   }
 
   /**
-   * @description Method to calculate the area of the rectangle.
+   * Method to calculate the area of the rectangle.
    * @returns The area of the rectangle.
    */
   calculateArea(): number {
@@ -41,7 +41,7 @@ export class Rectangle extends Figure {
   }
 
   /**
-   * @description Method to calculate the perimeter of the rectangle.
+   * Method to calculate the perimeter of the rectangle.
    * @returns The perimeter of the rectangle.
    */
   calculatePerimeter(): number {
@@ -49,7 +49,7 @@ export class Rectangle extends Figure {
   }
 
   /**
-   * @description Gets the width of the rectangle.
+   * Gets the width of the rectangle.
    * @returns The width of the rectangle.
    */
   getWidth(): number {
@@ -57,7 +57,7 @@ export class Rectangle extends Figure {
   }
 
   /**
-   * @description Gets the height of the rectangle.
+   * Gets the height of the rectangle.
    * @returns The height of the rectangle.
    */
   getHeight(): number {

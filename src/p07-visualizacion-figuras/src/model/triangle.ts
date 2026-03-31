@@ -8,19 +8,19 @@
  * @author Enrique Gómez Díaz <enrique.gomez.13@ull.edu.es>
  * @author Manuel Cadenas García <manuel.cadenas.25@ull.edu.es>
  * @since Mar 20 2026
- * @description Class that represents a triangle - Model.
+ * @desc Class that represents a triangle - Model.
  */
 
 import { Figure } from './figure.js';
 
 /**
- * @description Class that represents a triangle - Model.
+ * Class that represents a triangle - Model.
  * @class Triangle
  */
 export class Triangle extends Figure {
 
   /**
-   * @description Constructor for Triangle.
+   * Constructor for Triangle.
    * @param base The base of the triangle.
    * @param height The height of the triangle.
    * @throws Will throw an error if the base or height is not a positive number.
@@ -33,7 +33,7 @@ export class Triangle extends Figure {
   }
 
   /**
-   * @description Method to calculate the area of the triangle.
+   * Method to calculate the area of the triangle.
    * @returns The area of the triangle.
    */
   calculateArea(): number {
@@ -41,7 +41,7 @@ export class Triangle extends Figure {
   }
 
   /**
-   * @description Method to calculate the perimeter of the triangle.
+   * Method to calculate the perimeter of the triangle.
    * @returns The perimeter of the triangle.
    */
   calculatePerimeter(): number {
@@ -52,7 +52,7 @@ export class Triangle extends Figure {
   }
 
   /**
-   * @description Gets the base of the triangle.
+   * Gets the base of the triangle.
    * @returns The base of the triangle.
    */
   getBase(): number {
@@ -60,7 +60,7 @@ export class Triangle extends Figure {
   }
 
   /**
-   * @description Gets the height of the triangle.
+   * Gets the height of the triangle.
    * @returns The height of the triangle.
    */
   getHeight(): number {

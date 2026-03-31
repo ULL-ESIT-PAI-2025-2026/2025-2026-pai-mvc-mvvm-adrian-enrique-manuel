@@ -8,7 +8,7 @@
  * @author Enrique Gómez Díaz <enrique.gomez.13@ull.edu.es>
  * @author Manuel Cadenas García <manuel.cadenas.25@ull.edu.es>
  * @since Mar 31 2026
- * @description Factory class for creating figure drawers - View.
+ * @desc Factory class for creating figure drawers - View.
  */
 
 import { Figure } from '../../model/figure.js';
@@ -25,7 +25,7 @@ import { SquareDrawer } from './square-drawer.js';
 import { HeartDrawer } from './heart-drawer.js';
 
 /**
- * @description Factory class that creates the appropriate drawer for a given figure.
+ * Factory class that creates the appropriate drawer for a given figure.
  * This class implements the Factory pattern to decouple the creation of drawers
  * from the figure classes themselves.
  * @class DrawerFactory
@@ -33,7 +33,7 @@ import { HeartDrawer } from './heart-drawer.js';
 export class DrawerFactory {
 
   /**
-   * @description Creates a drawer for the given figure.
+   * Creates a drawer for the given figure.
    * @param figure - The figure for which to create a drawer.
    * @returns A drawer appropriate for the given figure.
    * @throws Error if the figure type is not recognized.
