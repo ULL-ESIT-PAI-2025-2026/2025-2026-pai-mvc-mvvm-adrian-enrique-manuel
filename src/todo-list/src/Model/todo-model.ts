@@ -28,15 +28,6 @@ export class Model {
     this.todos = stored ? JSON.parse(stored) as Todo[] : [];
   }
 
-  /** 
-   * Registers the callback that view through the controller will use to refresh the UI.
-   * @callback callback Function to call when the todo list changes,
-   *    receiving the updated list of todos.
-   */
-  onChange(callback: (todos: Todo[]) => void): void {
-    this.observers.push(callback);
-  }
-
   /**
    * Adds a new todo to the list with the given text, assigning it a unique ID.
    * @param todoText The text description of the new todo item.
@@ -81,6 +72,15 @@ export class Model {
         todo.id === id ? { ...todo, complete: !todo.complete } : todo
       )
     );
+  }
+
+  /** 
+   * Registers the callback that view through the controller will use to refresh the UI.
+   * @param callback Function to call when the todo list changes,
+   *    receiving the updated list of todos.
+   */
+  onChange(callback: (todos: Todo[]) => void): void {
+    this.observers.push(callback);
   }
 
   /**

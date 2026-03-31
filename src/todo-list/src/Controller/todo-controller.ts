@@ -13,8 +13,8 @@
  * @see {@link https://github.com/taniarascia/mvc }
  */
 
-import { Model } from '../Model/model.js';
-import { View } from '../View/view.js';
+import { Model } from '../Model/todo-model.js';
+import { View } from '../View/todo-view.js';
 import { Todo } from '../todo.js';
 
 /**
@@ -30,12 +30,12 @@ export class Controller {
    * @param view The instance of the View class to manage the application's user interface.
    */ 
   constructor(private readonly model: Model, private readonly view: View) {
-    this.model.onChange(this.handleTodoListChange);
-
     this.view.onAddTodo(this.handleAddTodo);
     this.view.onEditTodo(this.handleEditTodo);
     this.view.onDeleteTodo(this.handleDeleteTodo);
     this.view.onToggleTodo(this.handleToggleTodo);
+
+    this.model.onChange(this.handleTodoListChange);
 
     // Display initial todos from localStorage
     this.handleTodoListChange(this.model.getTodos());

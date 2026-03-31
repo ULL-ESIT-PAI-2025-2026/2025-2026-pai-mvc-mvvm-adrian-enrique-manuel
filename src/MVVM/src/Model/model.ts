@@ -12,24 +12,19 @@
  */
 
 /**
- * Interface for user data, used to initialize the model with default values.
- */
-export interface UserData {
-  firstName: string;
-  lastName: string;
-}
-
-/**
  * Model class representing a user with a first name and last name.
  */
 export class User {
+  private readonly firstName: string;
+  private readonly lastName: string;
+  
   /**
    * Constructor for the Model class. Converts the first name and last name 
    * to uppercase for display purposes.
    * @param firstName The first name of the user.
    * @param lastName The last name of the user.
    */
-  constructor(private readonly firstName: string, private readonly lastName: string) {
+  constructor(firstName: string, lastName: string) {
     this.firstName = firstName.toUpperCase();
     this.lastName = lastName.toUpperCase();
   }
