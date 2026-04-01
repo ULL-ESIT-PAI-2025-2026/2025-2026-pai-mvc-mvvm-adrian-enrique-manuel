@@ -22,7 +22,7 @@ import { Heart } from "./p07-heart.js";
 /**
  * FigureCreator class that generates random geometric figures - Factory Pattern.
  */
-export class FigureCreator {
+export class FigureCreatorModel {
   static readonly MIN_SIZE: number = 100;
   static readonly MAX_SIZE: number = 300;
 
@@ -30,20 +30,20 @@ export class FigureCreator {
    * Generates a random geometric figure.
    * @returns A random geometric figure.
    */
-  static generateRandomFigure(): Figure {
+  generateRandomFigure(): Figure {
     const figureType: number = getRandomNumber(0, 5);
 
     switch (figureType) {
       case 0:
-        return new Circle(getRandomNumber(FigureCreator.MIN_SIZE, FigureCreator.MAX_SIZE));
+        return new Circle(getRandomNumber(FigureCreatorModel.MIN_SIZE, FigureCreatorModel.MAX_SIZE));
       case 1:
-        return new Square(getRandomNumber(FigureCreator.MIN_SIZE, FigureCreator.MAX_SIZE));
+        return new Square(getRandomNumber(FigureCreatorModel.MIN_SIZE, FigureCreatorModel.MAX_SIZE));
       case 2:
-        return new Rectangle(getRandomNumber(FigureCreator.MIN_SIZE, FigureCreator.MAX_SIZE), getRandomNumber(FigureCreator.MIN_SIZE, FigureCreator.MAX_SIZE));
+        return new Rectangle(getRandomNumber(FigureCreatorModel.MIN_SIZE, FigureCreatorModel.MAX_SIZE), getRandomNumber(FigureCreatorModel.MIN_SIZE, FigureCreatorModel.MAX_SIZE));
       case 3:
-        return new Triangle(getRandomNumber(FigureCreator.MIN_SIZE, FigureCreator.MAX_SIZE), getRandomNumber(FigureCreator.MIN_SIZE, FigureCreator.MAX_SIZE));
+        return new Triangle(getRandomNumber(FigureCreatorModel.MIN_SIZE, FigureCreatorModel.MAX_SIZE), getRandomNumber(FigureCreatorModel.MIN_SIZE, FigureCreatorModel.MAX_SIZE));
       case 4:
-        return new Heart(getRandomNumber(FigureCreator.MIN_SIZE, FigureCreator.MAX_SIZE));
+        return new Heart(getRandomNumber(FigureCreatorModel.MIN_SIZE, FigureCreatorModel.MAX_SIZE));
       default:
         throw new Error('Invalid figure type');
     }

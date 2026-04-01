@@ -13,6 +13,7 @@
 
 import { View } from './View/p07-view.js';
 import { Controller } from './Controller/p07-controller.js';
+import { FigureCreatorModel } from './Model/p07-figure-creator.js';
 
 /**
  * Main function that runs when the page loads.
@@ -27,9 +28,9 @@ function main(): void {
     }
 
     const view = new View();
-    
-    const controller = new Controller(view);
-    
+    const model = new FigureCreatorModel();
+    const controller = new Controller(view, model);
+
     controller.drawFigures(numberOfFigures);
 
   } catch (error) {

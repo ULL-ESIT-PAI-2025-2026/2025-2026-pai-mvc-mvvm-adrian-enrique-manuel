@@ -13,7 +13,7 @@
 
 import { View } from '../View/p07-view.js';
 import { Figure } from '../Model/p07-figure.js';
-import { FigureCreator } from '../Model/p07-figure-creator.js';
+import { FigureCreatorModel } from '../Model/p07-figure-creator.js';
 
 /**
  * Controller class that coordinates between the Model and the View.
@@ -23,8 +23,9 @@ export class Controller {
   /**
    * Constructor for Controller.
    * @param view The view instance to be used by the controller.
+   * @param model The model instance to be used by the controller.
    */
-  constructor(private view: View) {}
+  constructor(private view: View, private model: FigureCreatorModel) {}
 
   /**
    * Initializes the application by generating and rendering random figures.
@@ -34,7 +35,7 @@ export class Controller {
       
       let figures: Figure[] = [];
       for (let i: number = 0; i < numberOfFigures; i++) {
-        const figure: Figure = FigureCreator.generateRandomFigure();
+        const figure: Figure = this.model.generateRandomFigure();
         figures.push(figure);
       }
 
