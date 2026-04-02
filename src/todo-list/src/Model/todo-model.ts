@@ -47,7 +47,7 @@ export class Model {
       text: todoText,
       complete: false,
     };
-    this.storeInLocal([...this.todos, todo]);
+    this.commit([...this.todos, todo]);
     this.notify();
   }
 
@@ -57,7 +57,7 @@ export class Model {
    * @param updatedText The new text to update the todo with.
    */
   editTodo(id: number, updatedText: string): void {
-    this.storeInLocal(
+    this.commit(
       this.todos.map((todo) =>
         todo.id === id ? { ...todo, text: updatedText } : todo
       )
@@ -70,7 +70,7 @@ export class Model {
    * @param id The unique identifier of the todo to delete.
    */
   deleteTodo(id: number): void {
-    this.storeInLocal(this.todos.filter((todo) => todo.id !== id));
+    this.commit(this.todos.filter((todo) => todo.id !== id));
     this.notify();
   }
 
@@ -79,7 +79,7 @@ export class Model {
    * @param id The unique identifier of the todo to toggle.
    */
   toggleTodo(id: number): void {
-    this.storeInLocal(
+    this.commit(
       this.todos.map((todo) =>
         todo.id === id ? { ...todo, complete: !todo.complete } : todo
       )
@@ -106,7 +106,7 @@ export class Model {
    * Persists state and notifies the observer.
    * @param todos The updated list of todos to save and notify about.
    */
-  private storeInLocal(todos: Todo[]): void {
+  private commit(todos: Todo[]): void {
     this.todos = todos;
     localStorage.setItem('todos', JSON.stringify(todos));
   }
