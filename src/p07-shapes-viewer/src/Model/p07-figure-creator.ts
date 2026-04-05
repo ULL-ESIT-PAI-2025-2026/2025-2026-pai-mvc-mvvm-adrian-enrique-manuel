@@ -52,8 +52,8 @@ export class FigureCreatorModel {
 
 /**
  * Generates a random number between two values.
- * @param min - Minimum value.
- * @param max - Maximum value.
+ * @param min Minimum value.
+ * @param max Maximum value.
  * @returns A random number between min and max.
  */
 function getRandomNumber(min: number, max: number): number {
